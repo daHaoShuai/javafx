@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="450.0" prefWidth="750.0" style="-fx-background-color: #34495e;"
+            xmlns="http://javafx.com/javafx/" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.da.controller.TwoController">
+    <Label layoutX="339.0" layoutY="33.0" text="制度模板" textFill="#ecf0f1">
+        <font>
+            <Font name="System Bold" size="18.0"/>
+        </font>
+    </Label>
+</AnchorPane>

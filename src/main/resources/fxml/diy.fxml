@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="450.0" prefWidth="750.0" style="-fx-background-color: #34495e;"
+            xmlns="http://javafx.com/javafx/" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.da.controller.DiyController">
+    <Label layoutX="321.0" layoutY="36.0" text="编辑配置文件" textFill="#2ecc71">
+        <font>
+            <Font name="System Bold" size="18.0"/>
+        </font>
+    </Label>
+    <Label layoutX="87.0" layoutY="100.0" text="要生成的模板" textFill="#2ecc71">
+        <font>
+            <Font name="System Bold" size="14.0"/>
+        </font>
+    </Label>
+    <TextField layoutX="205.0" layoutY="95.0">
+        <font>
+            <Font name="System Bold" size="14.0"/>
+        </font>
+    </TextField>
+</AnchorPane>
