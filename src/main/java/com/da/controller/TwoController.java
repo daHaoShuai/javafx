@@ -1,6 +1,10 @@
 package com.da.controller;
 
 import com.da.App;
+import com.da.utils.AppUtil;
+import javafx.event.ActionEvent;
+
+import java.io.IOException;
 
 /**
  * Author Da
@@ -20,4 +24,7 @@ public class TwoController {
         App.appStage.setTitle("制度模板生成");
     }
 
+    public void goHomePage(ActionEvent actionEvent) throws IOException {
+        AppUtil.changeView("index");
+    }
 }

@@ -93,15 +93,16 @@ public class IndexController {
 
     //    跳转立项书模板页面
     public void goOnePage(ActionEvent actionEvent) throws IOException {
-        AppUtil.changeView("fxml/one.fxml");
+        AppUtil.changeView("one");
     }
 
     //    跳转制度模板页面
     public void goTwoPage(ActionEvent actionEvent) throws IOException {
-        AppUtil.changeView("fxml/two.fxml");
+        AppUtil.changeView("two");
     }
 
     //    使用配置文件高级配置
-    public void diyPage(ActionEvent actionEvent) {
+    public void diyPage(ActionEvent actionEvent) throws IOException {
+        AppUtil.changeView("diy");
     }
 }

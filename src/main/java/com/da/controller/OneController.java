@@ -77,6 +77,6 @@ public class OneController {
 
     //    回首页
     public void goHome(ActionEvent actionEvent) throws IOException {
-        AppUtil.changeView("fxml/index.fxml");
+        AppUtil.changeView("index");
     }
 }

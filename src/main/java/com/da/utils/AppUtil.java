@@ -41,7 +41,7 @@ public class AppUtil {
     //    切换页面
     public static void changeView(String view) throws IOException {
         FXMLLoader loader = new FXMLLoader();
-        URL url = loader.getClassLoader().getResource(view);
+        URL url = loader.getClassLoader().getResource("fxml/" + view + ".fxml");
         loader.setLocation(url);
         Object load = loader.load();
         App.scene.setRoot((Parent) load);
