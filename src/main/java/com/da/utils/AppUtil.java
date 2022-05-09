@@ -15,9 +15,15 @@ import javafx.stage.StageStyle;
 import javax.swing.filechooser.FileSystemView;
 import java.io.*;
 import java.net.URL;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -45,6 +51,21 @@ public class AppUtil {
         loader.setLocation(url);
         Object load = loader.load();
         App.scene.setRoot((Parent) load);
+    }
+
+    //    编辑配置文件
+    public static void editConfigFile(String templateName, String[] keys, List<String> data) throws IOException {
+//            获取配置文件
+        String configFile = CONFIG_PATH + File.separator + "config" + File.separator + "da.txt";
+//        要写入配置文件的内容
+        String configContent = "[template]=" + templateName + "\n";
+        for (int i = 0; i < data.size(); i++) {
+//            修改配置文件
+            configContent += keys[i] + "=" + data.get(i) + "\n";
+        }
+        FileOutputStream os = new FileOutputStream(configFile);
+        os.write(configContent.getBytes(StandardCharsets.UTF_8));
+        os.close();
     }
 
     //    处理模板文件,返回成功或者失败
@@ -106,5 +127,31 @@ public class AppUtil {
         button.setOnAction(e -> stage.close());
     }
 
-
+    //    分配时间
+    public static List<String> getSegmentTime(String startTime, String endTime, int count) throws ParseException {
+//        格式化时间
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy年MM月dd日");
+//        获取开始和结束的时间
+        Date startData = simpleDateFormat.parse(startTime);
+        Date endData = simpleDateFormat.parse(endTime);
+//        算出2个日期间的天数
+        long day = 24 * 60 * 60 * 1000;
+        long interval = (endData.getTime() - startData.getTime()) / day;
+//        均分间隔天数
+        long section = interval / count;
+//        保存生成好的所有时间
+        List<String> datas = new ArrayList<>();
+//        记录变化的时间节点
+        Date temp = startData;
+        for (int i = 1; i < count * 2 - 1; i++) {
+            String data = "";
+            if (i % 2 == 0) {
+                temp = new Date(temp.getTime() + day);
+            } else {
+                temp = new Date(temp.getTime() + section * day);
+            }
+            datas.add(simpleDateFormat.format(temp));
+        }
+        return datas;
+    }
 }

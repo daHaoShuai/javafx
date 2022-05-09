@@ -8,6 +8,8 @@ import javafx.scene.control.TextField;
 
 import java.io.*;
 import java.nio.charset.StandardCharsets;
+import java.text.ParseException;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -48,6 +50,7 @@ public class OneController {
         List<String> inpText = Arrays.asList(name.getText(), time.getText(), endtime.getText(), project.getText(), p1.getText(), p2.getText());
 //        获取不为空的列表
         List<String> infoText = inpText.stream().filter(i -> !"".equals(i)).collect(Collectors.toList());
+
 //        如果有没有填的内容就提示
         if (inpText.size() > infoText.size()) {
             AppUtil.createDialog("还有没填的数据,请仔细填写完整");
@@ -55,22 +58,20 @@ public class OneController {
         }
 
         try {
-            //        模板中要填充的数据的键名
-            String[] keys = {"name", "time", "endtime", "project", "p1", "p2"};
-//            获取配置文件
-            String configFile = AppUtil.CONFIG_PATH + File.separator + "config" + File.separator + "da.txt";
-//        要写入配置文件的内容
-            String configContent = "[template]=one\n";
-            for (int i = 0; i < infoText.size(); i++) {
-//            修改配置文件
-                configContent += keys[i] + "=" + infoText.get(i) + "\n";
+//            获取分割的时间段
+            List<String> data = AppUtil.getSegmentTime(infoText.get(1), infoText.get(2), 4);
+//            向原来的数组中加入时间
+            for (int i = 0; i < data.size(); i++) {
+                infoText.add(2 + i, data.get(i));
             }
-            FileOutputStream os = new FileOutputStream(configFile);
-            os.write(configContent.getBytes(StandardCharsets.UTF_8));
+//        模板中要填充的数据的键名
+            String[] keys = {"name", "time", "time1", "time2", "time3", "time4", "time5", "time6", "endtime", "project", "p1", "p2"};
+//            写入配置文件
+            AppUtil.editConfigFile("one", keys, infoText);
 //        使用新线程 读取配置文件并且创建模板
             ReadConfigTemplateService service = new ReadConfigTemplateService();
             service.start();
-        } catch (IOException e) {
+        } catch (IOException | ParseException e) {
             e.printStackTrace();
         }
     }
