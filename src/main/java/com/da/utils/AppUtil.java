@@ -81,7 +81,11 @@ public class AppUtil {
                 Files.createDirectory(resultPath);
             }
 //            生成替换好的模板文件到result目录下
-            os = new FileOutputStream(resultPath + File.separator + template.getName());
+            if (data.containsKey("project")) {
+                os = new FileOutputStream(resultPath + File.separator + data.get("project") + ".docx");
+            } else {
+                os = new FileOutputStream(resultPath + File.separator + template.getName());
+            }
             XWPFTemplate render = XWPFTemplate.compile(is).render(data);
             render.writeAndClose(os);
             isOk = true;

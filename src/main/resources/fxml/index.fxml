@@ -26,9 +26,9 @@
             <Font name="System Bold" size="14.0"/>
         </font>
     </Button>
-    <Label fx:id="message" layoutX="316.0" layoutY="115.0" textFill="#f1c40f">
+    <Label fx:id="message" layoutX="176.0" layoutY="146.0" textFill="#f1c40f">
         <font>
-            <Font name="System Italic" size="14.0"/>
+            <Font name="System Bold" size="10.0"/>
         </font>
     </Label>
     <TextArea fx:id="text" layoutX="182.0" layoutY="174.0" prefHeight="100.0" prefWidth="400.0"

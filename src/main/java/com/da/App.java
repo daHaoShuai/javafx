@@ -42,7 +42,7 @@ public class App extends Application {
         stage.setScene(scene);
         stage.getIcons().add(new Image("bg.png"));
         //禁止窗口拉伸
-        stage.setResizable(false);
+//        stage.setResizable(false);
         stage.show();
     }
 }

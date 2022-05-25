@@ -41,6 +41,7 @@ public class IndexController {
 
     public void initialize() {
         App.appStage.setTitle("自定义模板生成");
+        App.appStage.setResizable(false);
     }
 
 

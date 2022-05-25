@@ -3,13 +3,11 @@ package com.da.controller;
 import com.da.App;
 import com.da.service.ReadConfigTemplateService;
 import com.da.utils.AppUtil;
-import javafx.event.ActionEvent;
 import javafx.scene.control.TextField;
 
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Collectors;
 
 /**
  * Author Da
@@ -33,14 +31,15 @@ public class TwoController {
 
     public void initialize() {
         App.appStage.setTitle("制度模板生成");
+        App.appStage.setResizable(false);
     }
 
-    public void goHomePage(ActionEvent actionEvent) throws IOException {
+    public void goHomePage() throws IOException {
         AppUtil.changeView("index");
     }
 
     //    生成模板
-    public void createTemplate(ActionEvent actionEvent) throws IOException {
+    public void createTemplate() throws IOException {
         if ("".equals(name.getText()) || "".equals(time.getText())) {
             AppUtil.createDialog("请仔细检查输入");
             return;

@@ -32,72 +32,144 @@
             <Font name="System Bold" size="14.0"/>
         </font>
     </Label>
-    <TextField fx:id="time" layoutX="177.0" layoutY="137.0">
+    <TextField fx:id="time" layoutX="177.0" layoutY="137.0" promptText="格式: 2022年05月25日">
         <font>
             <Font name="System Bold" size="12.0"/>
         </font>
     </TextField>
-    <Label layoutX="69.0" layoutY="186.0" text="项目结束时间" textFill="#2ecc71">
+    <Label layoutX="69.0" layoutY="173.0" text="项目结束时间" textFill="#2ecc71">
         <font>
             <Font name="System Bold" size="14.0"/>
         </font>
     </Label>
-    <TextField fx:id="endtime" layoutX="177.0" layoutY="183.0">
+    <TextField fx:id="endtime" layoutX="177.0" layoutY="171.0" promptText="格式: 2022年10月25日">
         <font>
             <Font name="System Bold" size="12.0"/>
         </font>
     </TextField>
-    <Label layoutX="97.0" layoutY="234.0" text="项目名字" textFill="#2ecc71">
+    <Label layoutX="97.0" layoutY="215.0" text="项目名字" textFill="#2ecc71">
         <font>
             <Font name="System Bold" size="14.0"/>
         </font>
     </Label>
-    <TextField fx:id="project" layoutX="177.0" layoutY="231.0">
+    <TextField fx:id="project" layoutX="177.0" layoutY="213.0" promptText="不能有/\:*?等特殊字符">
         <font>
             <Font name="System Bold" size="12.0"/>
         </font>
     </TextField>
-    <Label layoutX="69.0" layoutY="284.0" text="项目评审组长" textFill="#2ecc71">
+    <Label layoutX="75.0" layoutY="251.0" text="项目评审组长" textFill="#2ecc71">
         <font>
             <Font name="System Bold" size="14.0"/>
         </font>
     </Label>
-    <TextField fx:id="p1" layoutX="177.0" layoutY="281.0">
+    <TextField fx:id="p1" layoutX="177.0" layoutY="249.0">
         <font>
             <Font name="System Bold" size="12.0"/>
         </font>
     </TextField>
-    <Label layoutX="82.0" layoutY="330.0" text="项目负责人" textFill="#2ecc71">
+    <Label layoutX="89.0" layoutY="290.0" text="项目负责人" textFill="#2ecc71">
         <font>
             <Font name="System Bold" size="14.0"/>
         </font>
     </Label>
-    <TextField fx:id="p2" layoutX="177.0" layoutY="327.0">
+    <TextField fx:id="p2" layoutX="177.0" layoutY="288.0">
         <font>
             <Font name="System Bold" size="12.0"/>
         </font>
     </TextField>
-    <Button layoutX="420.0" layoutY="325.0" mnemonicParsing="false" onAction="#createTemplate"
+    <Button layoutX="454.0" layoutY="400.0" mnemonicParsing="false" onAction="#createTemplate"
             style="-fx-background-color: #2ecc71;" text="生成立项书模板" textFill="#ecf0f1">
         <font>
             <Font name="System Bold" size="14.0"/>
         </font>
     </Button>
-    <Button layoutX="568.0" layoutY="325.0" mnemonicParsing="false" onAction="#goHome"
+    <Button layoutX="597.0" layoutY="400.0" mnemonicParsing="false" onAction="#goHome"
             style="-fx-background-color: #2ecc71;" text="返回首页" textFill="#ecf0f1">
         <font>
             <Font name="System Bold" size="14.0"/>
         </font>
     </Button>
-    <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="438.0" layoutY="100.0" pickOnBounds="true"
+    <ImageView fx:id="img" fitHeight="200.0" fitWidth="350.0" layoutX="531.0" layoutY="94.0" pickOnBounds="true"
                preserveRatio="true">
-        <image>
-            <Image url="@../bg.png"/>
-        </image>
+        <Image url="@../lp.png"/>
     </ImageView>
-    <Label layoutX="430.0" layoutY="271.0" text="这里空空的,不放的什么心里不舒服" textFill="#ecf0f1">
+    <Label fx:id="ot" layoutX="513.0" layoutY="329.0" text="天气是暖暖的，我的心是冰冰的" textFill="#ecf0f1">
         <font>
             <Font name="System Bold" size="14.0"/>
         </font>
     </Label>
+    <Label layoutX="75.0" layoutY="329.0" text="参加评审人员" textFill="#2ecc71">
+        <font>
+            <Font name="System Bold" size="14.0"/>
+        </font>
+    </Label>
+    <TextField fx:id="p3" layoutX="177.0" layoutY="327.0">
+        <font>
+            <Font name="System Bold" size="12.0"/>
+        </font>
+    </TextField>
+    <Label layoutX="75.0" layoutY="367.0" text="研发团队人数" textFill="#2ecc71">
+        <font>
+            <Font name="System Bold" size="14.0"/>
+        </font>
+    </Label>
+    <TextField fx:id="pNum" layoutX="177.0" layoutY="365.0">
+        <font>
+            <Font name="System Bold" size="12.0"/>
+        </font>
+    </TextField>
+    <Button fx:id="c1" layoutX="374.0" layoutY="93.0" mnemonicParsing="false" style="-fx-background-color: #2ecc71;"
+            text="清除" textFill="#ecf0f1">
+        <font>
+            <Font name="System Bold" size="12.0"/>
+        </font>
+    </Button>
+    <Button fx:id="c2" layoutX="375.0" layoutY="137.0" mnemonicParsing="false" style="-fx-background-color: #2ecc71;"
+            text="清除" textFill="#ecf0f1">
+        <font>
+            <Font name="System Bold" size="12.0"/>
+        </font>
+    </Button>
+    <Button fx:id="c3" layoutX="375.0" layoutY="171.0" mnemonicParsing="false" style="-fx-background-color: #2ecc71;"
+            text="清除" textFill="#ecf0f1">
+        <font>
+            <Font name="System Bold" size="12.0"/>
+        </font>
+    </Button>
+    <Button fx:id="c4" layoutX="375.0" layoutY="213.0" mnemonicParsing="false" style="-fx-background-color: #2ecc71;"
+            text="清除" textFill="#ecf0f1">
+        <font>
+            <Font name="System Bold" size="12.0"/>
+        </font>
+    </Button>
+    <Button fx:id="c5" layoutX="375.0" layoutY="249.0" mnemonicParsing="false" style="-fx-background-color: #2ecc71;"
+            text="清除" textFill="#ecf0f1">
+        <font>
+            <Font name="System Bold" size="12.0"/>
+        </font>
+    </Button>
+    <Button fx:id="c6" layoutX="375.0" layoutY="288.0" mnemonicParsing="false" style="-fx-background-color: #2ecc71;"
+            text="清除" textFill="#ecf0f1">
+        <font>
+            <Font name="System Bold" size="12.0"/>
+        </font>
+    </Button>
+    <Button fx:id="c7" layoutX="375.0" layoutY="327.0" mnemonicParsing="false" style="-fx-background-color: #2ecc71;"
+            text="清除" textFill="#ecf0f1">
+        <font>
+            <Font name="System Bold" size="12.0"/>
+        </font>
+    </Button>
+    <Button fx:id="c8" layoutX="375.0" layoutY="365.0" mnemonicParsing="false" style="-fx-background-color: #2ecc71;"
+            text="清除" textFill="#ecf0f1">
+        <font>
+            <Font name="System Bold" size="12.0"/>
+        </font>
+    </Button>
+    <Button fx:id="cAll" layoutX="347.0" layoutY="400.0" mnemonicParsing="false" style="-fx-background-color: #2ecc71;"
+            text="清除全部" textFill="#ecf0f1">
+        <font>
+            <Font name="System Bold" size="14.0"/>
+        </font>
+    </Button>
 </AnchorPane>

@@ -1,13 +1,12 @@
 package com.da.controller;
 
+import com.da.App;
 import com.da.service.ReadConfigTemplateService;
 import com.da.utils.AppUtil;
-import javafx.event.ActionEvent;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
@@ -34,8 +33,13 @@ public class DiyController {
     public TextArea content;
 
 
+    public void initialize() {
+        App.appStage.setTitle("自定义配置文件生成");
+        App.appStage.setResizable(false);
+    }
+
     //    生成模板
-    public void createTemplate(ActionEvent actionEvent) throws IOException {
+    public void createTemplate() throws IOException {
         if ("".equals(templates.getText()) || "".equals(content.getText())) {
             AppUtil.createDialog("请仔细检查输入是否完成");
             return;
@@ -52,7 +56,7 @@ public class DiyController {
     }
 
     //    回首页
-    public void goHomePage(ActionEvent actionEvent) throws IOException {
+    public void goHomePage() throws IOException {
         AppUtil.changeView("index");
     }
 }
